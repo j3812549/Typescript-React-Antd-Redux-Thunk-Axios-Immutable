@@ -1,7 +1,5 @@
-# React-typescript-redux-thunk-axios-immutable
-对react练手用的demo
+## 基于typescript-react-redux-router集成的基础模板
 
-# 项目初始化创建
 ```
-create-react-app demo --scripts-version=react-scripts-ts
+npm start 运行
 ```
