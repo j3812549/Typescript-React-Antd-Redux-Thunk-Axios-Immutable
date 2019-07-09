@@ -12,7 +12,6 @@ class Index extends React.Component<IndexProps> {
   constructor(props: any) {
     super(props)
     this.state = {}
-    this.handleLayoutMenuItem = this.handleLayoutMenuItem.bind(this)
     this.createMenu = this.createMenu.bind(this)
     this.createRoute = this.createRoute.bind(this)
   }
@@ -57,13 +56,8 @@ class Index extends React.Component<IndexProps> {
     }
   }
 
-  public handleLayoutMenuItem(e: any) {
-    const path = e.key
-    this.props.history.push(path)
-  }
-
   public render() {
-    const { MenuItem } = this.props
+    const { MenuItem, handleLayoutMenuItem } = this.props
     const MenuHtml = MenuItem.map((item: IRouterMatch, index: number) => {
       if (item.children && item.children.length > 0) {
         return this.createMenu(item)
@@ -95,7 +89,7 @@ class Index extends React.Component<IndexProps> {
             defaultOpenKeys={['sub1']}
             mode="inline"
             theme="dark"
-            onClick={this.handleLayoutMenuItem}
+            onClick={handleLayoutMenuItem}
           >
             {MenuHtml}
           </Menu>
@@ -107,7 +101,7 @@ class Index extends React.Component<IndexProps> {
               我的天？
               <Switch>
                 {RouteHtml}
-                <Redirect to='/test1' />
+                <Redirect to='/home/test1' />
               </Switch>
             </div>
           </Content>
