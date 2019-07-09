@@ -4,6 +4,7 @@ import Index from './indexUI'
 import { actionComponentMap } from '../../routers'
 import { RouteComponentProps } from 'react-router-dom'
 import { IRouterMatch } from '../../routers'
+import { push } from 'react-router-redux'
 
 interface IStateProps {
   MenuItem?: IRouterMatch[] | any
@@ -24,6 +25,10 @@ const mapStateToProps = (state: IndexProps) => {
 
 const mapDispatchToProps = (dispatch: any | IndexProps) => {
   return {
+    handleLayoutMenuItem (e: any) {
+      const path = e.key
+      dispatch(push(path))
+    }
   }
 }
 
