@@ -65,6 +65,7 @@
     "@types/react-router-dom": "^4.3.4",
     "@types/react-router-redux": "^5.0.18",
     "babel-plugin-import": "^1.12.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "typescript": "^3.5.2"
