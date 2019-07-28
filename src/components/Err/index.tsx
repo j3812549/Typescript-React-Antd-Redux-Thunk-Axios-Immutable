@@ -1,9 +1,11 @@
 import * as React from 'react';
 import './index.less'
+import store from '../../store'
 
 class Err extends React.Component<any> {
   constructor(props: any) {
     super(props)
+    console.log(store.getState())
     this.state = {
       aaa: '2'
     }

@@ -1,9 +1,19 @@
-import { Action } from 'redux'
+import { Action as ReduxAction } from 'redux'
 import { initialState } from './model'
+import type from './type'
 
-export default (state = initialState, action: Action) => {
+interface IAction extends ReduxAction {
+  data: any
+}
+
+export default (state = initialState, action: IAction) => {
+  let newState = state
+  console.log(action)
   switch (action.type) {
-    default: 
-    return state
+    case type.GET_LOGIN_INFO:
+      newState = newState.set('userName', action.data.name)
+      newState = newState.set('userId', action.data.user)
+    default:
   }
+  return newState
 }

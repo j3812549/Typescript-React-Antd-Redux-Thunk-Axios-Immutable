@@ -5,7 +5,9 @@ import { push } from 'react-router-redux'
 import { Dispatch } from 'redux'
 import Login from './loginUI'
 import { LoginAPI } from '../../api/user'
+import userInfo from '../../store/global/userInfo'
 
+const { getUserInfoList } = userInfo.actions
 
 export interface IStateProps {
   user: string,
@@ -20,6 +22,7 @@ export type ILoginProps = IStateProps & IDispatchProps & RouteComponentProps
 
 
 const mapStateToProps = (state: ILoginProps) => {
+  console.log(state)
   return {
     user: '',
     password: ''
@@ -30,8 +33,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     handleLogin: (data: object) => {
       LoginAPI(data).then((res: any) => {
-        console.log(res)
-        dispatch(push('/home'))
+        getUserInfoList(res)
+        dispatch(push('/404'))
       })
     }
   }

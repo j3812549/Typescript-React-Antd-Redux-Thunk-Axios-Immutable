@@ -10,8 +10,8 @@ module.exports = {
         return
       }
       const data = Mock.mock({
-        'name': '@cname',
-        'user':  user
+        'userName': '@cname',
+        'userId':  user
       })
       res.send({ code: 200, data: data})
     }
