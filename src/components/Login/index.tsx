@@ -2,28 +2,37 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { RouteComponentProps } from 'react-router-dom'
 import { push } from 'react-router-redux'
+import { Dispatch } from 'redux'
 import Login from './loginUI'
+import { LoginAPI } from '../../api/user'
 
-interface IStateProps {
-  userName: string
+
+export interface IStateProps {
+  user: string,
+  password: string
 }
 
 interface IDispatchProps {
-  handleLogin(): void
+  handleLogin(data: object): void
 }
 
 export type ILoginProps = IStateProps & IDispatchProps & RouteComponentProps
 
+
 const mapStateToProps = (state: ILoginProps) => {
   return {
+    user: '',
+    password: ''
   }
 }
 
-const mapDispatchToProps = (dispatch: any | ILoginProps) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    handleLogin: () => {
-      dispatch(push('/404'))
-      // dispatch(push('/home/test1'))
+    handleLogin: (data: object) => {
+      LoginAPI(data).then((res: any) => {
+        console.log(res)
+        dispatch(push('/home'))
+      })
     }
   }
 }

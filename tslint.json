@@ -8,13 +8,15 @@
     "exclude": [
       "config/**/*.js",
       "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
+      "coverage/lcov-report/*.js",
+      "mock/**/*.js"
     ]
   },
   "rules": {
     "ordered-imports": false,
     "member-order": false,
     "object-literal-sort-keys": [false],
-    "no-console": false
+    "no-console": false,
+    "jsx-no-lambda": false
   }
 }
