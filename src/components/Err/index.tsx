@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './index.less'
 import store from '../../store'
+import { connect } from 'react-redux'
 
 class Err extends React.Component<any> {
   constructor(props: any) {
@@ -25,4 +26,11 @@ class Err extends React.Component<any> {
   }
 }
 
-export default Err
+const mapStateToProps = (state: any) => {
+  console.log(state)
+  return {
+    prop: state.prop
+  }
+}
+
+export default connect(mapStateToProps)(Err)

@@ -10,4 +10,10 @@ ReactDOM.render(
   <Root store={store} />,
   document.getElementById('root') as HTMLElement
 );
+store.subscribe(() => {
+  ReactDOM.render(
+    <Root store={store} />,
+    document.getElementById('root') as HTMLElement
+  );
+})
 registerServiceWorker();

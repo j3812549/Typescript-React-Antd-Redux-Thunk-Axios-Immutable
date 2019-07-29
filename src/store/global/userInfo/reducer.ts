@@ -8,11 +8,10 @@ interface IAction extends ReduxAction {
 
 export default (state = initialState, action: IAction) => {
   let newState = state
-  console.log(action)
   switch (action.type) {
     case type.GET_LOGIN_INFO:
-      newState = newState.set('userName', action.data.name)
-      newState = newState.set('userId', action.data.user)
+      newState = newState.set('userName', action.data.userName)
+      newState = newState.set('userId', action.data.userId)
     default:
   }
   return newState
