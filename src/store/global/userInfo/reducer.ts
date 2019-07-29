@@ -12,7 +12,9 @@ export default (state = initialState, action: IAction) => {
     case type.GET_LOGIN_INFO:
       newState = newState.set('userName', action.data.userName)
       newState = newState.set('userId', action.data.userId)
-    default:
+    case type.LOGOUT:
+      newState = newState.set('userName', undefined)
+      newState = newState.set('userId', undefined)
   }
   return newState
 }

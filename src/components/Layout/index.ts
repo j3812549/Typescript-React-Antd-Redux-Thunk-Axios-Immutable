@@ -5,13 +5,17 @@ import { actionComponentMap } from '../../routers'
 import { RouteComponentProps } from 'react-router-dom'
 import { IRouterMatch } from '../../routers'
 import { push } from 'react-router-redux'
+import userInfo from '../../store/global/userInfo'
+
+const { Logout } = userInfo.actions
 
 interface IStateProps {
   MenuItem?: IRouterMatch[] | any
 }
 
 interface IDispatchProps {
-  handleLayoutMenuItem(e: object): void
+  handleLayoutMenuItem(e: object): void,
+  handleLogout(): void
 }
 
 export type IndexProps = IStateProps & IDispatchProps & RouteComponentProps
@@ -28,6 +32,10 @@ const mapDispatchToProps = (dispatch: any | IndexProps) => {
     handleLayoutMenuItem (e: any) {
       const path = e.key
       dispatch(push(path))
+    },
+    handleLogout () {
+      dispatch(Logout())
+      dispatch(push('/login'))
     }
   }
 }

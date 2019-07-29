@@ -8,3 +8,7 @@ export interface IUserResponse {
 export const getUserInfoList = (data: IUserResponse) => {
   return { type: type.GET_LOGIN_INFO, data }
 }
+
+export const Logout = () => {
+  return { type: type.LOGOUT }
+}

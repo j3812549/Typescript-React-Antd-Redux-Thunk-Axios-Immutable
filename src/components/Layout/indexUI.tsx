@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Switch, Route, Redirect } from 'react-router'
 import { ComponentProps } from 'react'
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Dropdown } from 'antd';
 import { IndexProps } from './index'
 import { IRouterMatch } from '../../routers'
 const { Header, Content, Footer, Sider } = Layout;
@@ -70,7 +70,7 @@ class Index extends React.Component<IndexProps> {
       right: 20,
       top: 10
     }
-    const { MenuItem, handleLayoutMenuItem } = this.props
+    const { MenuItem, handleLayoutMenuItem, handleLogout } = this.props
     const MenuHtml = MenuItem.map((item: IRouterMatch, index: number) => {
       if (item.children && item.children.length > 0) {
         return this.createMenu(item)
@@ -90,6 +90,25 @@ class Index extends React.Component<IndexProps> {
         <Route key={item.path} path={item.path} component={item.component} />
       )
     })
+    const UserMenuHtml = (
+      <Menu>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/j3812549">
+            github
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="http://www.tiancai9.top">
+            ⑨のBlog
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a onClick={handleLogout} target="_blank" rel="noopener noreferrer">
+            Logout
+          </a>
+        </Menu.Item>
+      </Menu>
+    )
     return (
       <Layout style={{ height: '100%' }}>
         <Sider
@@ -109,7 +128,9 @@ class Index extends React.Component<IndexProps> {
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }} >
-            <img style={HeadSculptureStyle} alt='头像' src={this.state.HeadSculpture} />
+            <Dropdown overlay={UserMenuHtml}>
+              <img style={HeadSculptureStyle} alt='头像' src={this.state.HeadSculpture} />
+            </Dropdown>
           </Header>
           <Content style={{ margin: '24px 16px 0', height: '100%' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360, height: '100%' }}>
