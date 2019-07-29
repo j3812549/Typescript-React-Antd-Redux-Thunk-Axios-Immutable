@@ -9,23 +9,28 @@ const { SubMenu } = Menu
 
 
 class Index extends React.Component<IndexProps> {
+  public state: {
+    HeadSculpture: string
+  }
   constructor(props: any) {
     super(props)
-    this.state = {}
+    this.state = {
+      HeadSculpture: require('../../static/image/HeadSculpture.jpg')
+    }
     this.createMenu = this.createMenu.bind(this)
     this.createRoute = this.createRoute.bind(this)
   }
 
   public createRoute(element: IRouterMatch[] | any): IRouterMatch[] | ComponentProps<any> {
     const children: IRouterMatch[] = element.children
-    let temp 
+    let temp
     if (children && children.length > 0) {
       temp = children.map(item => {
         return this.createRoute(item)
       })
       return temp
     } else {
-      return(
+      return (
         <Route key={element.path} path={element.path} component={element.component} />
       )
     }
@@ -57,6 +62,14 @@ class Index extends React.Component<IndexProps> {
   }
 
   public render() {
+    const HeadSculptureStyle = {
+      width: 40,
+      height: 40,
+      borderRadius: '50%',
+      position: 'absolute' as 'absolute',
+      right: 20,
+      top: 10
+    }
     const { MenuItem, handleLayoutMenuItem } = this.props
     const MenuHtml = MenuItem.map((item: IRouterMatch, index: number) => {
       if (item.children && item.children.length > 0) {
@@ -78,7 +91,7 @@ class Index extends React.Component<IndexProps> {
       )
     })
     return (
-      <Layout style={{height: '100%'}}>
+      <Layout style={{ height: '100%' }}>
         <Sider
           breakpoint="lg"
           collapsedWidth="0"
@@ -95,8 +108,10 @@ class Index extends React.Component<IndexProps> {
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} />
-          <Content style={{ margin: '24px 16px 0',height: '100%' }}>
+          <Header style={{ background: '#fff', padding: 0 }} >
+            <img style={HeadSculptureStyle} alt='头像' src={this.state.HeadSculpture} />
+          </Header>
+          <Content style={{ margin: '24px 16px 0', height: '100%' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360, height: '100%' }}>
               我的天？
               <Switch>
