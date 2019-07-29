@@ -93,18 +93,18 @@ class Index extends React.Component<IndexProps> {
     const UserMenuHtml = (
       <Menu>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="https://github.com/j3812549">
-            github
+          <a style={{textAlign: 'center'}} target="_blank" rel="noopener noreferrer" href="http://www.tiancai9.top">
+            Blog
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="http://www.tiancai9.top">
-            ⑨のBlog
+          <a style={{textAlign: 'center'}} target="_blank" rel="noopener noreferrer" href="https://github.com/j3812549">
+            Git Hub
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a onClick={handleLogout} target="_blank" rel="noopener noreferrer">
-            Logout
+          <a style={{textAlign: 'center'}} onClick={handleLogout} target="_blank" rel="noopener noreferrer">
+            登 出
           </a>
         </Menu.Item>
       </Menu>

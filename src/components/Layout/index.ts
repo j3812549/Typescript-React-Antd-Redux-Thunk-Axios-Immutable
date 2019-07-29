@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import { IRouterMatch, actionComponentMap } from 'src/routers'
 import { push } from 'react-router-redux'
 import userInfo from 'src/store/global/userInfo'
+import { message } from 'antd';
 
 const { Logout } = userInfo.actions
 
@@ -34,6 +35,7 @@ const mapDispatchToProps = (dispatch: any | IndexProps) => {
     },
     handleLogout () {
       dispatch(Logout())
+      message.success('登出成功')
       dispatch(push('/login'))
     }
   }
