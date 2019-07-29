@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router'
 import { ComponentProps } from 'react'
 import { Layout, Menu, Icon, Dropdown } from 'antd';
 import { IndexProps } from './index'
-import { IRouterMatch } from '../../routers'
+import { IRouterMatch } from 'src/routers'
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu
 
@@ -15,7 +15,7 @@ class Index extends React.Component<IndexProps> {
   constructor(props: any) {
     super(props)
     this.state = {
-      HeadSculpture: require('../../static/image/HeadSculpture.jpg')
+      HeadSculpture: require('src/static/image/HeadSculpture.jpg')
     }
     this.createMenu = this.createMenu.bind(this)
     this.createRoute = this.createRoute.bind(this)

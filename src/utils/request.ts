@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { fetchUrl } from '../config'
+import { fetchUrl } from 'src/config'
 
 const service = axios.create({
     baseURL: fetchUrl

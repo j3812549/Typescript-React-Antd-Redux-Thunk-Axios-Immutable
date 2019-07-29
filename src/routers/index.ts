@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react'
-import componentList from '../components'
+import componentList from 'src/components'
 
 const {
   Index,

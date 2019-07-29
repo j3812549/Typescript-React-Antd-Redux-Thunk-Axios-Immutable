@@ -5,8 +5,8 @@ import { push } from 'react-router-redux'
 import { Dispatch } from 'redux'
 import { message } from 'antd'
 import Login from './loginUI'
-import { LoginAPI } from '../../api/user'
-import userInfo from '../../store/global/userInfo'
+import { LoginAPI } from 'src/api/user'
+import userInfo from 'src/store/global/userInfo'
 
 const { getUserInfoList } = userInfo.actions
 

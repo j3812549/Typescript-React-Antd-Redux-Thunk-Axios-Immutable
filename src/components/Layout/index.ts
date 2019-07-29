@@ -1,11 +1,10 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import Index from './indexUI'
-import { actionComponentMap } from '../../routers'
 import { RouteComponentProps } from 'react-router-dom'
-import { IRouterMatch } from '../../routers'
+import { IRouterMatch, actionComponentMap } from 'src/routers'
 import { push } from 'react-router-redux'
-import userInfo from '../../store/global/userInfo'
+import userInfo from 'src/store/global/userInfo'
 
 const { Logout } = userInfo.actions
 

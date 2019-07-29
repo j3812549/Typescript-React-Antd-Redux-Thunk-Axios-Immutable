@@ -3,7 +3,7 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { combineReducers } from 'redux-immutable'
 import thunk from 'redux-thunk'
 
-import history from '../routers/history'
+import history from 'src/routers/history'
 
 import ReducerMapList from './ReducerMapList'
 
