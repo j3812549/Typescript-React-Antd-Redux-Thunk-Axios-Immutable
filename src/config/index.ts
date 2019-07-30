@@ -1,4 +1,5 @@
-const baseUrl = 'http://127.0.0.1'
+const basePort = `:${process.env.BASE_PORT}`
+const baseUrl = `http://127.0.0.1${basePort}`
 const Url = 'http://www.tiancai9.top'
 
 export const fetchUrl =

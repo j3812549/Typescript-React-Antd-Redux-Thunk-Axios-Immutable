@@ -13,7 +13,29 @@ const getClientEnvironment = require('./env');
 const paths = require('./paths');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const app = require('../mock/services')
+const net = require('net')
 
+const portIsOccupied = (port) => {
+  const server = net.createServer().listen(port)
+
+  server.on('listening', () => {
+    server.close(() => {
+      app.listen(port, () => {
+        console.log(`mock接口服务器启动完成，端口为：${port}`)
+      })
+    })
+  })
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.log(`========${process.env.BASE_PORT}=======`)
+
+      process.env.BASE_PORT = Number(process.env.BASE_PORT) + 1
+      portIsOccupied(process.env.BASE_PORT)
+    }
+  })
+}
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -21,8 +43,12 @@ const publicPath = '/';
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
 const publicUrl = '';
+
+const baseUrl = process.env.BASE_PORT
 // Get environment variables to inject into our app.
-const env = getClientEnvironment(publicUrl);
+const env = getClientEnvironment(publicUrl, baseUrl);
+
+portIsOccupied(process.env.BASE_PORT)
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.

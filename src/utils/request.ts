@@ -7,6 +7,10 @@ const service = axios.create({
 
 // 添加请求拦截器
 service.interceptors.request.use(config => {
+    console.log(fetchUrl)
+    console.log(process.env)
+    console.log(process.env.BASE_PORT)
+    console.log(global)
     return config;
 }, error => Promise.reject(error)
 );

@@ -13,7 +13,4 @@ app.all('*', (req, res, next) => {
   next()
 })
 
-const { LoginAPI } = require('./user');
-app.post('/user/login', LoginAPI());
-
-module.exports = app
+app.listen(80)
