@@ -7,8 +7,9 @@ import { message } from 'antd'
 import Login from './loginUI'
 import { LoginAPI } from 'src/api/user'
 import userInfo from 'src/store/global/userInfo'
+import { setCookie } from 'src/utils/token'
 
-const { getUserInfoList } = userInfo.actions
+const { setUserInfoList } = userInfo.actions
 
 export interface IStateProps {
   user: string,
@@ -23,7 +24,6 @@ export type ILoginProps = IStateProps & IDispatchProps & RouteComponentProps
 
 
 const mapStateToProps = (state: ILoginProps) => {
-  console.log(state)
   return {
     user: '',
     password: ''
@@ -39,7 +39,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
           return
         }
         message.success(`登录成功`)
-        dispatch(getUserInfoList(res.data))
+        setCookie('user', res.data)
+        dispatch(setUserInfoList(res.data))
         dispatch(push('/home'))
       }).catch(err => {
         message.error(`发生未知错误${err}`)

@@ -5,8 +5,8 @@ export interface IUserResponse {
   data: object | string
 }
 
-export const getUserInfoList = (data: IUserResponse) => {
-  return { type: type.GET_LOGIN_INFO, data }
+export const setUserInfoList = (data: IUserResponse) => {
+  return { type: type.SET_LOGIN_INFO, data }
 }
 
 export const Logout = () => {

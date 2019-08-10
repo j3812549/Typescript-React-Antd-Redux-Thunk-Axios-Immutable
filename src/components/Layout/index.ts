@@ -4,9 +4,9 @@ import Index from './indexUI'
 import { RouteComponentProps } from 'react-router-dom'
 import { IRouterMatch, actionComponentMap } from 'src/routers'
 import { push } from 'react-router-redux'
-import userInfo from 'src/store/global/userInfo'
 import { message } from 'antd';
-
+import userInfo from 'src/store/global/userInfo'
+import { removeCookie } from 'src/utils/token'
 const { Logout } = userInfo.actions
 
 interface IStateProps {
@@ -35,6 +35,7 @@ const mapDispatchToProps = (dispatch: any | IndexProps) => {
     },
     handleLogout () {
       dispatch(Logout())
+      removeCookie('user')
       message.success('登出成功')
       dispatch(push('/login'))
     }
