@@ -4,14 +4,7 @@ import componentList from 'src/components'
 const {
   Index,
   Login,
-  Test1,
-  Test2,
-  Test3,
-  Test4,
-  Test5,
-  Test6,
-  Test7,
-  Test8
+
 } = componentList
 
 export interface IRouterMatch {
@@ -42,70 +35,7 @@ const componentMap: IRouterMatch[] = [
   }
 ]
 const actionComponentMap: IRouterMatch[] = [
-  {
-    path: '/home/test1',
-    title: '测试1',
-    icon: 'setting',
-    component: Test1
-  },
-  {
-    path: '/home/test2',
-    icon: 'setting',
-    title: '测试2',
-    component: Test2
-  },
-  {
-    path: '/home/test3',
-    title: '二级菜单测试',
-    children: [
-      {
-        path: '/home/test3',
-        title: '测试3',
-        component: Test3
-      },
-      {
-        path: '/home/test4',
-        icon: 'setting',
-        title: '测试4',
-        component: Test4
-      },
-    ]
-  },
-  {
-    path: '/home/test5',
-    title: '多级菜单测试',
-    children: [
-      {
-        path: '/home/test2333',
-        title: '测试5',
-        children: [
-          {
-            path: '/home/test5',
-            icon: 'setting',
-            title: '测试5',
-            component: Test5
-          },
-          {
-            path: '/home/test6',
-            title: '测试6',
-            component: Test6
-          },
-          {
-            path: '/home/test7',
-            icon: 'setting',
-            title: '测试7',
-            component: Test7
-          },
-        ]
-      },
-      {
-        path: '/home/test8',
-        icon: 'setting',
-        title: '测试8',
-        component: Test8
-      },
-    ]
-  }
+  
 ]
 
 export {
