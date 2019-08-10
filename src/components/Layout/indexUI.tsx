@@ -134,7 +134,6 @@ class Index extends React.Component<IndexProps> {
           </Header>
           <Content style={{ margin: '24px 16px 0', height: '100%' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360, height: '100%' }}>
-              我的天？
               <Switch>
                 {RouteHtml}
                 <Redirect to='/home/test1' />

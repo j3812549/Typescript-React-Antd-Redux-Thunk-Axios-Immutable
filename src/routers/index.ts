@@ -4,6 +4,7 @@ import componentList from 'src/components'
 const {
   Index,
   Login,
+  Editor
 
 } = componentList
 
@@ -35,7 +36,17 @@ const componentMap: IRouterMatch[] = [
   }
 ]
 const actionComponentMap: IRouterMatch[] = [
-  
+  {
+    path: '/home/component',
+    title: '组件',
+    children: [
+      {
+        path: '/home/editor',
+        title: '富文本',
+        component: Editor
+      }
+    ]
+  }
 ]
 
 export {
