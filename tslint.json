@@ -15,8 +15,12 @@
   "rules": {
     "ordered-imports": false,
     "member-order": false,
-    "object-literal-sort-keys": [false],
+    "object-literal-sort-keys": [
+      false
+    ],
     "no-console": false,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "no-empty-interface": false,
+    "one-variable-per-declaration": false
   }
 }

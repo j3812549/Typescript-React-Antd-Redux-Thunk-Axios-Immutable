@@ -4,8 +4,8 @@ import componentList from 'src/components'
 const {
   Index,
   Login,
-  Editor
-
+  Editor,
+  SpeedBall
 } = componentList
 
 export interface IRouterMatch {
@@ -44,6 +44,17 @@ const actionComponentMap: IRouterMatch[] = [
         path: '/home/editor',
         title: '富文本',
         component: Editor
+      }
+    ]
+  },
+  {
+    path: '/home/canvas',
+    title: 'canvas',
+    children: [
+      {
+        path: '/home/speedball',
+        title: '加速球',
+        component: SpeedBall
       }
     ]
   }
