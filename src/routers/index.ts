@@ -5,7 +5,8 @@ const {
   Index,
   Login,
   Editor,
-  SpeedBall
+  SpeedBall,
+  BarChart
 } = componentList
 
 export interface IRouterMatch {
@@ -55,6 +56,11 @@ const actionComponentMap: IRouterMatch[] = [
         path: '/home/speedball',
         title: '加速球',
         component: SpeedBall
+      },
+      {
+        path: '/home/barchart',
+        title: '柱状图',
+        component: BarChart
       }
     ]
   }
