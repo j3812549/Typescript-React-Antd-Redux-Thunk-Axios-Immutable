@@ -3,6 +3,7 @@ import Login from './Login'
 import Editor from './Editor'
 import SpeedBall from './SpeedBall'
 import BarChart from './BarChart'
+import LineChart from './LineChart'
 import { ComponentProps } from 'react'
 
 const componentList: ComponentProps<any> = {
@@ -10,7 +11,8 @@ const componentList: ComponentProps<any> = {
   Login,
   Editor,
   SpeedBall,
-  BarChart
+  BarChart,
+  LineChart
 }
 
 export default componentList

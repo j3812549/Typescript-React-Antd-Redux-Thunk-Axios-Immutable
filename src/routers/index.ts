@@ -6,7 +6,8 @@ const {
   Login,
   Editor,
   SpeedBall,
-  BarChart
+  BarChart,
+  LineChart
 } = componentList
 
 export interface IRouterMatch {
@@ -61,6 +62,11 @@ const actionComponentMap: IRouterMatch[] = [
         path: '/home/barchart',
         title: '柱状图',
         component: BarChart
+      },
+      {
+        path: '/home/linechart',
+        title: '折线图',
+        component: LineChart
       }
     ]
   }
